@@ -4,7 +4,7 @@
       <div class="card-body gap-4">
         <h1 class="card-title justify-center text-2xl">Sorteio</h1>
 
-        <div role="tablist" class="tabs tabs-boxed justify-center">
+        <div role="tablist" class="tabs tabs-box justify-evenly">
           <button role="tab" class="tab" :class="{ 'tab-active': modo === 'sorteio' }" @click="modo = 'sorteio'">
             Sorteador
           </button>
@@ -64,6 +64,10 @@
             </p>
           </div>
 
+          <div class="flex justify-end">
+            <button class="btn btn-ghost" @click="resetCaraCoroa">Limpar</button>
+          </div>
+
           <button class="btn btn-primary btn-lg w-full" @click="sortearCaraCoroa">
             Sortear
           </button>
@@ -111,6 +115,7 @@ const {
   ultimoSorteado: ultimoCaraCoroa,
   resultados: resultadosCaraCoroa,
   sortear: sortearCaraCoroa,
+  reset: resetCaraCoroa,
 } = useCaraCoroa();
 
 const resultadoCaraCoroa = computed(() =>
