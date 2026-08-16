@@ -5,20 +5,10 @@
         <h1 class="card-title justify-center text-2xl">Sorteio</h1>
 
         <div role="tablist" class="tabs tabs-boxed justify-center">
-          <button
-            role="tab"
-            class="tab"
-            :class="{ 'tab-active': modo === 'sorteio' }"
-            @click="modo = 'sorteio'"
-          >
+          <button role="tab" class="tab" :class="{ 'tab-active': modo === 'sorteio' }" @click="modo = 'sorteio'">
             Sorteador
           </button>
-          <button
-            role="tab"
-            class="tab"
-            :class="{ 'tab-active': modo === 'caraCoroa' }"
-            @click="modo = 'caraCoroa'"
-          >
+          <button role="tab" class="tab" :class="{ 'tab-active': modo === 'caraCoroa' }" @click="modo = 'caraCoroa'">
             Cara ou Coroa
           </button>
         </div>
@@ -31,26 +21,16 @@
           <div class="flex gap-2">
             <label class="flex-1">
               <span class="label-text text-sm mb-1 inline-block">Mínimo</span>
-              <input
-                type="number"
-                class="input input-bordered w-full"
-                :value="min"
-                @change="onMinChange"
-              />
+              <input type="number" class="input input-bordered w-full" :value="min" @change="onMinChange" />
             </label>
             <label class="flex-1">
               <span class="label-text text-sm mb-1 inline-block">Máximo</span>
-              <input
-                type="number"
-                class="input input-bordered w-full"
-                :value="max"
-                @change="onMaxChange"
-              />
+              <input type="number" class="input input-bordered w-full" :value="max" @change="onMaxChange" />
             </label>
           </div>
 
           <div class="text-center py-2">
-            <p class="text-sm text-base-content/60">O número sorteado é</p>
+            <p class="text-base-content">O número sorteado é</p>
             <p class="text-7xl font-black text-primary leading-tight">
               {{ ultimoSorteado ?? "—" }}
             </p>
@@ -58,15 +38,10 @@
 
           <div class="flex items-center justify-between gap-2">
             <label class="flex cursor-pointer items-center gap-2">
-              <input
-                type="checkbox"
-                class="toggle toggle-sm toggle-primary"
-                :checked="comRepeticao"
-                @change="toggleRepeticao"
-              />
-              <span class="label-text text-sm">Com repetição</span>
+              <input type="checkbox" class="checkbox" :checked="comRepeticao" @change="toggleRepeticao" />
+              <span class="label-text">Com repetição</span>
             </label>
-            <button class="btn btn-sm btn-ghost" @click="resetSorteador">Limpar</button>
+            <button class="btn btn-ghost" @click="resetSorteador">Limpar</button>
           </div>
 
           <button class="btn btn-primary btn-lg w-full" @click="sortear">Sortear</button>
@@ -74,11 +49,7 @@
           <div v-if="sorteados.length > 0">
             <p class="label-text text-sm mb-1">Números sorteados ({{ sorteados.length }})</p>
             <div class="flex flex-wrap gap-1">
-              <span
-                v-for="(n, i) in sorteados"
-                :key="i"
-                class="badge badge-ghost badge-lg"
-              >
+              <span v-for="(n, i) in sorteados" :key="i" class="badge badge-ghost badge-lg">
                 {{ n }}
               </span>
             </div>
@@ -87,7 +58,7 @@
 
         <template v-else>
           <div class="text-center py-2">
-            <p class="text-sm text-base-content/60">O resultado é</p>
+            <p class="text-base-content">O resultado é</p>
             <p class="text-7xl font-black text-primary leading-tight">
               {{ resultadoCaraCoroa }}
             </p>
@@ -102,11 +73,7 @@
               Resultados ({{ resultadosCaraCoroa.length }})
             </p>
             <div class="flex flex-wrap gap-1">
-              <span
-                v-for="(r, i) in resultadosCaraCoroa"
-                :key="i"
-                class="badge badge-ghost badge-lg"
-              >
+              <span v-for="(r, i) in resultadosCaraCoroa" :key="i" class="badge badge-ghost badge-lg">
                 {{ r === "cara" ? "Cara" : "Coroa" }}
               </span>
             </div>
